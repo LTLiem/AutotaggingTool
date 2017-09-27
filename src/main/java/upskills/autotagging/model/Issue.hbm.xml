@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 27, 2017 2:16:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Issue" table="issue" catalog="recondb" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="report" type="string">
+            <column name="report" length="50" />
+        </property>
+        <property name="trnFmly" type="string">
+            <column name="trn_fmly" length="50" />
+        </property>
+        <property name="trnGrp" type="string">
+            <column name="trn_grp" length="50" />
+        </property>
+        <property name="trnType" type="string">
+            <column name="trn_type" length="50" />
+        </property>
+        <property name="sqlFilter" type="string">
+            <column name="sql_filter" />
+        </property>
+        <property name="correctSource" type="string">
+            <column name="correct_source" length="50" />
+        </property>
+        <property name="differentType" type="string">
+            <column name="different_type" length="50" />
+        </property>
+        <property name="explanation" type="string">
+            <column name="explanation" />
+        </property>
+        <property name="fieldValues" type="string">
+            <column name="field_values" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

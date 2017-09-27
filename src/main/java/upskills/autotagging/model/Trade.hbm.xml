@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 27, 2017 2:16:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Trades" table="trades" catalog="recondb" optimistic-lock="version">
+        <composite-id name="id" class="model.TradesId">
+            <key-property name="field" type="string">
+                <column name="field" length="15" />
+            </key-property>
+            <key-property name="nb" type="int">
+                <column name="NB" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="issue" class="model.Issue" fetch="select">
+            <column name="issue_id" />
+        </many-to-one>
+        <property name="instrument" type="string">
+            <column name="instrument" length="20" />
+        </property>
+        <property name="currency" type="string">
+            <column name="currency" length="3" />
+        </property>
+        <property name="portfolio" type="string">
+            <column name="portfolio" length="50" />
+        </property>
+        <property name="trnFmly" type="string">
+            <column name="trn_fmly" length="5" />
+        </property>
+        <property name="trnGrp" type="string">
+            <column name="trn_grp" length="5" />
+        </property>
+        <property name="trnType" type="string">
+            <column name="trn_type" length="5" />
+        </property>
+        <property name="trnStatus" type="string">
+            <column name="trn_status" length="15" />
+        </property>
+    </class>
+    
+
+     <query name="getTradeByNbAndField">
+    	<![CDATA[from trade where NB = :NB and field = :field]]>
+    </query>
+    
+     <query name="deleteTradeByKey">
+    	<![CDATA[delete from trade where NB = :NB and field = :field]]>
+    </query>
+
+</hibernate-mapping>
